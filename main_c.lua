@@ -1,16 +1,26 @@
 local attached = {}
 
+local function LoadModel(model)
+  if not HasModelLoaded(model) then
+    RequestModel(model)
+    while not HasModelLoaded(model) do
+        Wait(0)
+    end
+  end
+end
+
 local function AttachWeapon(ped, weapon)
     local coords = GetEntityCoords(ped)
     local data = cfg.attachables[weapon]
     attached[weapon] = {obj = nil, components = {}}
-
+    LoadModel(data.model)
     local weaponObj = CreateObject(data.model, coords, true, false, false)
     AttachEntityToEntity(weaponObj, ped, GetPedBoneIndex(ped, data.attachBone), data.pos.x, data.pos.y, data.pos.z, data.rot.x, data.rot.y, data.rot.z, 0, 1, 0, 0, 2, 1)
     attached[weapon].obj = weaponObj
 
     for k, v in pairs(data.components) do
         if HasPedGotWeaponComponent(ped, weapon, k) then
+            LoadModel(v.model)
             local componentObj = CreateObject(v.model, coords, true, false, false)
             AttachEntityToEntity(componentObj, weaponObj, GetEntityBoneIndexByName(weaponObj, v.attachBone), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 1, 0, 0, 2, 1)
             table.insert(attached[weapon].components, componentObj)
