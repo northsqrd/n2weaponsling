@@ -4,8 +4,17 @@ cfg.attachables = {
     [`weapon_carbinerifle`] = {
         model = `w_ar_carbinerifle`,
         attachBone = 24818,
-        pos = vector3(-0.07, 0.23, -0.001),
-        rot = vector3(180.0, 145.0, -10.0),
+        defaultLoc = "front",
+        loc = {
+            ["front"] = {
+                pos = vector3(-0.07, 0.23, -0.001),
+                rot = vector3(180.0, 145.0, -10.0),
+            },
+            ["back"] = {
+                pos = vector3(-0.090, -0.15, 0.01),
+                rot = vector3(160.0, 0.0, 0.0),
+            }
+        },
         components = {
             [`component_carbinerifle_clip_01`] = {
                 attachBone = 'WAPClip',
@@ -37,8 +46,17 @@ cfg.attachables = {
     [`weapon_pumpshotgun`] = {
         model = `w_sg_pumpshotgun`,
         attachBone = 24818,
-        pos = vector3(-0.090, -0.15, 0.01),
-        rot = vector3(160.0, 0.0, 0.0),
+        defaultLoc = "back",
+        loc = {
+            ["front"] = {
+                pos = vector3(-0.07, 0.23, -0.001),
+                rot = vector3(180.0, 145.0, -10.0),
+            },
+            ["back"] = {
+                pos = vector3(-0.090, -0.15, 0.01),
+                rot = vector3(160.0, 0.0, 0.0),
+            }
+        },
         components = {
             [`component_at_ar_flsh`] = {
                 attachBone = 'WAPFlshLasr',
