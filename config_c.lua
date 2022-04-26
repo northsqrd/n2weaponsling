@@ -4,13 +4,13 @@ cfg.attachables = {
     [`weapon_carbinerifle`] = {  -- The hashkey of the weapon itself.
         model = `w_ar_carbinerifle`, -- The hashkey of the weapon model that gets attached.
         attachBone = 24818, -- Which bone you want to attach the weapon to. See https://wiki.gtanet.work/index.php?title=Bones for a list.
-        defaultLoc = "front", -- The default location the weapon attaches to. Must match a value of one of the options in the "loc" table.
+        defaultLoc = 'front', -- The default location the weapon attaches to. Must match a value of one of the options in the 'loc' table.
         loc = {
-            ["front"] = {
+            ['front'] = {
                 pos = vector3(-0.07, 0.23, -0.001),
                 rot = vector3(180.0, 145.0, -10.0),
             },
-            ["back"] = {
+            ['back'] = {
                 pos = vector3(-0.090, -0.15, 0.01),
                 rot = vector3(160.0, 0.0, 0.0),
             }
@@ -46,13 +46,13 @@ cfg.attachables = {
     [`weapon_pumpshotgun`] = {
         model = `w_sg_pumpshotgun`,
         attachBone = 24818,
-        defaultLoc = "back",
+        defaultLoc = 'back',
         loc = {
-            ["front"] = {
+            ['front'] = {
                 pos = vector3(-0.07, 0.23, -0.001),
                 rot = vector3(180.0, 145.0, -10.0),
             },
-            ["back"] = {
+            ['back'] = {
                 pos = vector3(-0.090, -0.15, 0.01),
                 rot = vector3(160.0, 0.0, 0.0),
             }

@@ -73,10 +73,10 @@ CreateThread(function()
     end
 end)
 
-RegisterCommand("sling", function(src, args)
+RegisterCommand('sling', function(src, args)
     if #args < 1 then
-        TriggerEvent("chat:addMessage", {
-            args = { "^6[Sling]", "Usage: /slingpos [pos|list]" },
+        TriggerEvent('chat:addMessage', {
+            args = { '^6[Sling]', 'Usage: /slingpos [pos|list]' },
         })
         return
     end
@@ -86,28 +86,28 @@ RegisterCommand("sling", function(src, args)
 
     local _, currentWeapon = GetCurrentPedWeapon(ped)
     if not cfg.attachables[currentWeapon] then
-        TriggerEvent("chat:addMessage", {
-            args = { "^6[Sling]", "Current weapon is not supported." },
+        TriggerEvent('chat:addMessage', {
+            args = { '^6[Sling]', 'Current weapon is not supported.' },
         })
     end
 
-    if action == "list" then
-        TriggerEvent("chat:addMessage", {
-            args = { "^6[Sling]", "Available positions: " .. table.concat(ListKeys(cfg.attachables[currentWeapon].loc), ", ") .. "." },
+    if action == 'list' then
+        TriggerEvent('chat:addMessage', {
+            args = { '^6[Sling]', 'Available positions: ' .. table.concat(ListKeys(cfg.attachables[currentWeapon].loc), ', ') .. '.' },
         })
         return
     end
 
     if not cfg.attachables[currentWeapon].loc[action] then
-        TriggerEvent("chat:addMessage", {
-            args = { "^6[Sling]", "Invalid position. Valid positions: " .. table.concat(ListKeys(cfg.attachables[currentWeapon].loc), ", ") .. "." },
+        TriggerEvent('chat:addMessage', {
+            args = { '^6[Sling]', 'Invalid position. Valid positions: ' .. table.concat(ListKeys(cfg.attachables[currentWeapon].loc), ', ') .. '.' },
         })
         return
     end
 
     attachPositions[currentWeapon] = action
-    TriggerEvent("chat:addMessage", {
-        args = { "^6[Sling]", "Position for current weapon set to '" .. action .. "'." },
+    TriggerEvent('chat:addMessage', {
+        args = { '^6[Sling]', "Position for current weapon set to '" .. action .. "'." },
     })
 end)
 
