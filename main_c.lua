@@ -89,6 +89,7 @@ RegisterCommand('sling', function(src, args)
         TriggerEvent('chat:addMessage', {
             args = { '^6[Sling]', 'Current weapon is not supported.' },
         })
+        return
     end
 
     if action == 'list' then
